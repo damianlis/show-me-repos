@@ -1,0 +1,26 @@
+$base-height:  100vh;
+
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $base-height;
+}
+
+.full-width {
+    width: 100%;
+}
+
+mat-card {
+    width: 40vw;
+}
+
+mat-form-field {
+    margin-top: 1em;
+}
+
+@media (max-width: 360px) {
+    mat-card {
+        width: 50vw;
+    }
+}

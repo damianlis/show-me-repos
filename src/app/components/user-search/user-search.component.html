@@ -1,0 +1,23 @@
+<div id="wrapper">
+    <mat-card>
+        <mat-card-title>{{ SHOW_ME_REPOS }}</mat-card-title>
+        <mat-card-content>
+            <form>
+                <mat-form-field class="full-width">
+                    <mat-label>Insert user</mat-label>
+                    <input matInput [formControl]="userFormControl">
+                    <mat-error *ngIf="userFormControl.hasError('required')">
+                        Username cannot be empty.
+                    </mat-error>
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions [align]="'end'">
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="startSearch()"
+            >Let's go!</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,28 @@
+<div id="wrapper">
+    <mat-card *ngIf="(repos$ | async) as repos; else loader">
+        <mat-card-title>
+            <img src="{{repos[0].owner.avatar_url}}" alt="User avatar">
+            {{ repos[0].owner.login | titlecase }}
+        </mat-card-title>
+        <mat-card-content>
+            <app-user-repos-list-item *ngFor="let repo of repos$ | async" [repo]="repo"></app-user-repos-list-item>
+        </mat-card-content>
+        <mat-card-footer>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="redirectToSearch()"
+            >Go back!</button>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="redirectToProfile()"
+                align="right"
+            >Go to profile</button>
+        </mat-card-footer>
+    </mat-card>
+
+    <ng-template #loader>
+        <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+    </ng-template>
+</div>

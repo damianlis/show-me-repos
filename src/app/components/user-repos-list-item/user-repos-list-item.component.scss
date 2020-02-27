@@ -1,0 +1,9 @@
+mat-card {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0.5em 0.5em 0;
+}
+
+mat-card-content p:not(:nth-child(1)) {
+    font-size: 12px;
+}

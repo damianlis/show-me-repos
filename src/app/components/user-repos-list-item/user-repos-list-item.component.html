@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            {{ repo?.name }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            Created at <b>&middot;</b> {{ repo?.created_at | date: 'longDate' }}
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Branches:</p>
+        <p *ngFor="let branch of branches$ | async">{{ branch?.name }} <b>&middot;</b> {{branch?.commit.sha}}</p>
+    </mat-card-content>
+</mat-card>
