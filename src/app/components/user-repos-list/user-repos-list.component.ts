@@ -3,7 +3,7 @@ import { Repository } from 'src/app/models/repository';
 import { Observable, throwError } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GithubApiService } from 'src/app/services/github-api.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, share } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -26,6 +26,7 @@ export class UserReposListComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.activatedRoute.snapshot.paramMap.get('user');
     this.repos$ = this.apiService.getRepos(this.user).pipe(
+      share(),
       catchError(errorObject => {
         this.router.navigate(['']);
         this.snackBar.open(`Oops something went wrong: ${errorObject.error.message}`, null, {

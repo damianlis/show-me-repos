@@ -5,8 +5,8 @@ import { UserReposListComponent } from './components/user-repos-list/user-repos-
 
 
 const routes: Routes = [
-  { path: '', component: UserSearchComponent },
-  { path: 'list/:user', component: UserReposListComponent }
+  { path: '', component: UserSearchComponent, data: { animation: 'Home' } },
+  { path: 'list/:user', component: UserReposListComponent, data: { animation: 'List' } }
 ];
 
 @NgModule({

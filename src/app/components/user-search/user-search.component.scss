@@ -19,8 +19,9 @@ mat-form-field {
     margin-top: 1em;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 500px) {
     mat-card {
-        width: 50vw;
+        width: 75vw;
+        flex-wrap: wrap;
     }
 }
